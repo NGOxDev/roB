@@ -51,7 +51,7 @@
 				target: document.getElementById("robrowser"),
 				type: ROBrowser.TYPE.FRAME,
 				application: ROBrowser.APP.ONLINE,
-				development: false,
+				development: true,
 				version: gitHash,
 				remoteClient: 'https://grf.robrowser.com/',
 				servers: [
@@ -105,7 +105,7 @@
 					// ADD PUBLIC TEST SERVERS HERE. IF YOU DON'T ALLOW _M _F REGISTRATION BE SURE TO ADD THE registrationweb CONFIG
 				],
 				packetDump: false,
-				skipServerList: false,  // ✅ เปลี่ยนจาก true เป็น false
+				skipServerList: true,  // ✅ เปลี่ยนจาก true เป็น false
 				skipIntro: false,       // ✅ เปลี่ยนจาก true เป็น false (ถูกแล้ว)
 				aura: {},
 				autoLogin: [],
