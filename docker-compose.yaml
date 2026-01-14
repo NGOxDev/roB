@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
       target: dev
     ports:
-      - "8000:8000"
+      - "8001:8001"
       # You can use to serve wsproxy.
       #- "5999:5999"
     volumes:
