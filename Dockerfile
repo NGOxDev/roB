@@ -10,9 +10,13 @@ RUN apt update -y -q && apt install build-essential -y -q && \
 
 WORKDIR /app
 
+# Copy application files
+COPY --chown=node:node . /app/
+
 EXPOSE 8000
 
-ENTRYPOINT ["/bin/bash", "-l", "-c", "sleep", "360h"]
+# Change entrypoint to actually run the application
+ENTRYPOINT ["npm", "run", "live"]
 
 FROM php:8.3-apache AS dist-server
 
@@ -58,6 +62,9 @@ RUN cat <<EOF > /etc/apache2/sites-enabled/dist.conf
 EOF
 
 RUN echo "Listen 8080" >> /etc/apache2/ports.conf
+
+# Copy application files to web root - สำคัญที่สุด!
+COPY --chown=www-data:www-data . /var/www/html/
 
 EXPOSE 8080
 
